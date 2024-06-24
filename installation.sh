@@ -98,5 +98,9 @@ fi
 # Install Calico network plugin
 read -p "Do you want to install Calico network plugin? [y/n]: " install_calico
 if [[ $install_calico == "y" ]]; then
+    kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.0/manifests/tigera-operator.yaml
+    # Wait for the operator to be ready
+    sleep 30
+    # change the default IP pool CIDR to match your pod network CIDR
     kubectl create -f ./calico.yaml
 fi
