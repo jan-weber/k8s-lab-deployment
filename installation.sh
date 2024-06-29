@@ -92,6 +92,7 @@ else
   echo "To join this node to the cluster, run the following command:"
   echo "sudo kubeadm join <control-plane-host>:<control-plane-port> --token <token> --discovery-token-ca-cert-hash sha256:<hash>"
   echo "To get the token and hash, run the following command on the master node:"
+  # print the command for getting the token and hash on the master node to join new worker nodes to the cluster
   echo "kubeadm token create --print-join-command" 
 fi
 
